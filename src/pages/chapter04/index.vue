@@ -1,19 +1,23 @@
 <template>
-  <div class="ReactivePage">
-    <h1>CHAPTER 04: Composables Reactive with Vue/Nuxt</h1>
-    <p>Composables Vue/Nuxt版 リアクティブプログラム</p>
+  <div class="container">
+    <div>
+      <h1>CHAPTER 04: Composables Reactive with Vue/Nuxt</h1>
+      <p>Composables Vue/Nuxt版 リアクティブプログラム</p>
 
-    <p id="message" v-html="computedMessage"></p>
+      <p id="message" v-html="computedMessage"></p>
 
-    <input
-      id="messageInput"
-      placeholder="Enter message"
-      @input="handleChangeMessage"
-    />
+      <BaseInput
+        id="messageInput"
+        placeholder="メッセージを入力してください"
+        :input="handleChangeMessage"
+      />
 
-    <p v-for="(error, index) in errors" :key="error+index">{{ error }}</p>
+      <p v-for="(error, index) in errors" :key="error+index">{{ error }}</p>
 
-    <LinkButton :href="'/'" :text="'ホームに戻る'" />
+      <div class="LinkGroup">
+        <LinkButton :href="'/'" :text="'ホームに戻る'" />
+      </div>
+    </div>
   </div>
 </template>
 

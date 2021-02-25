@@ -1,18 +1,22 @@
 <template>
-  <div class="ReactivePage">
-    <h1>CHAPTER 03: Reactive with Vue/Nuxt</h1>
-    <p>Vue/Nuxt版 リアクティブプログラム</p>
+  <div class="container">
+    <div>
+      <h1>CHAPTER 03: Reactive with Vue/Nuxt</h1>
+      <p>Vue/Nuxt版 リアクティブプログラム</p>
 
-    <p id="message" v-html="message"></p>
+      <p id="message" v-html="message"></p>
 
-    <input
-      id="messageInput"
-      placeholder="Enter message"
-      @input="handleChangeMessage"
-    />
-    <p v-for="(error, index) in errors" :key="error+index">{{ error }}</p>
+      <BaseInput
+        id="messageInput"
+        placeholder="メッセージを入力してください"
+        :input="handleChangeMessage"
+      />
+      <p v-for="(error, index) in errors" :key="error+index">{{ error }}</p>
 
-    <LinkButton :href="'/'" :text="'ホームに戻る'" />
+      <div class="LinkGroup">
+        <LinkButton :href="'/'" :text="'ホームに戻る'" />
+      </div>
+    </div>
   </div>
 </template>
 
@@ -34,6 +38,7 @@ interface Data {
 }
 export default defineComponent({
   components: {
+    BaseInput: () => import('~/components/atoms/BaseInput/index.vue'),
     LinkButton: () => import('~/components/molecules/buttons/LinkButton/index.vue'),
   },
   setup() {

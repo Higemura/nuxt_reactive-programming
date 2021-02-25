@@ -1,18 +1,22 @@
 <template>
-  <div class="ReactivePage">
-    <h1>CHAPTER 05: Practice Reactive Programming</h1>
-    <p>リアクティブプログラミングの実践</p>
+  <div class="container">
+    <div>
+      <h1>CHAPTER 05: Practice Reactive Programming</h1>
+      <p>リアクティブプログラミングの実践</p>
 
-    <p id="message" v-html="message"></p>
+      <p id="message" v-html="message"></p>
 
-    <input
-      id="messageInput"
-      placeholder="Enter message"
-      @input="handleChangeMessage"
-    />
-    <p v-for="(error, index) in errors" :key="error+index">{{ error }}</p>
+      <input
+        id="messageInput"
+        placeholder="Enter message"
+        @input="handleChangeMessage"
+      />
+      <p v-for="(error, index) in errors" :key="error+index">{{ error }}</p>
 
-    <LinkButton :href="'/'" :text="'ホームに戻る'" />
+      <div class="LinkGroup">
+        <LinkButton :href="'/'" :text="'ホームに戻る'" />
+      </div>
+    </div>
   </div>
 </template>
 

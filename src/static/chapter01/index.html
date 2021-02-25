@@ -1,18 +1,19 @@
-<div id="app" class="container">
+<div id="app">
   <h1>CHAPTER 01: Non Reactive</h1>
   <p>リアクティブではないプログラム</p>
 
-  <p id="message"></p>
-
-  <div>
+  <div style="margin: 20px;">
+    <p id="message" style="padding: 8px; min-height: 24px; min-width: 120px; border: solid 1px #ccc; border-radius: 4px; background-color: #eee;">
+      ここにメッセージが表示されます
+    </p>
     <input
       id="messageInput"
-      placeholder="Enter message"
-      oninput="changeMessage();"
+      placeholder="メッセージを入力してください"
+      oninput="changeMessage()"
     />
   </div>
 
-  <div>
+  <div style="margin-top: 40px;">
     <a href="/">HOME</a>
   </div>
 </div>
