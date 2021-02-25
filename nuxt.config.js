@@ -76,6 +76,6 @@ export default {
   router: {
     linkActiveClass: '_ActiveLink',
     linkExactActiveClass: '_ExactActiveLink',
-    trailingSlash: true,
+    // trailingSlash: true,
   },
 }

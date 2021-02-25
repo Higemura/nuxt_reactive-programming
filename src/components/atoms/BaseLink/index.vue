@@ -1,18 +1,6 @@
 <template>
-  <nuxt-link
-    v-if="nuxtLink || !target"
-    class="BaseLink"
-    :class="[
-      modifierClass,
-    ]"
-    :to="href"
-    :prefetch="prefetch"
-    :exact="exact"
-  >
-    <slot />
-  </nuxt-link>
   <a
-    v-else
+    v-if="!nuxtLink || target"
     class="BaseLink"
     :class="[
       modifierClass,
@@ -22,6 +10,16 @@
   >
     <slot />
   </a>
+  <nuxt-link
+    v-else
+    class="BaseLink"
+    :class="[modifierClass]"
+    :to="href"
+    :prefetch="prefetch"
+    :exact="exact"
+  >
+    <slot />
+  </nuxt-link>
 </template>
 
 <script lang="ts">

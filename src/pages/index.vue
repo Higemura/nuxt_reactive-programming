@@ -5,29 +5,29 @@
       <div class="LinkGroup">
         <LinkButton
           class="LinkGroup_Button"
-          :href="'/chapter01'"
+          :href="'/chapter01/'"
           :text="'CHAPTER 01: Non Reactive'"
           :nuxtLink="false"
         />
         <LinkButton
           class="LinkGroup_Button"
-          :href="'/chapter02'"
+          :href="'/chapter02/'"
           :text="'CHAPTER 02: Reactive without Frameworks'"
           :nuxtLink="false"
         />
         <LinkButton
           class="LinkGroup_Button"
-          :href="'/chapter03'"
+          :href="'/chapter03/'"
           :text="'CHAPTER 03: Reactive with Vue'"
         />
         <LinkButton
           class="LinkGroup_Button"
-          :href="'/chapter04'"
+          :href="'/chapter04/'"
           :text="'CHAPTER 04: Composables Reactive with Vue/Nuxt'"
         />
         <LinkButton
           class="LinkGroup_Button"
-          :href="'/chapter05'"
+          :href="'/chapter05/'"
           :text="'CHAPTER 05: Non Reactive'"
         />
       </div>
