@@ -1,0 +1,49 @@
+@import "foundation/_reset";
+@import "foundation/_variables";
+
+:root {
+  // Light Theme Colors
+  @each $key, $color in $theme-colors {
+    --color-#{$key}: #{hex-to-rgb($color)};
+  }
+
+  // Dark Theme Colors
+  // &[data-theme='dark'] {
+  //   @each $key, $color in $dark-theme-colors {
+  //     --color-#{$key}: #{hex-to-rgb($color)};
+  //   }
+  // }
+}
+
+html,
+body {
+  font-size: 62.5%;
+  line-height: 1.5;
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  width: 100%;
+}
+
+html {
+  color: color(main-text);
+  background-color: color(body-bg);
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+
+body {
+  -webkit-overflow-scrolling: touch;
+  font-feature-settings: "palt" 1;
+  letter-spacing: 1px;
+  font-size: 16px;
+
+  &._Fixed {
+    overflow: hidden;
+  }
+}
+
+#__nuxt,
+#__layout {
+  height: inherit;
+  width: inherit;
+  background-color: transparent;
+}

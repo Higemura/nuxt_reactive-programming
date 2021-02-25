@@ -1,0 +1,59 @@
+@mixin mq($breakpoint: md) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
+
+@mixin hover($type: hover) {
+  @media (hover: $type) {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+@mixin box-shadow($offset-x: 0, $offset-y: 1px, $blur: 4px, $spread: 2px, $alpha: 0.2) {
+  box-shadow: $offset-x $offset-y $blur $spread color(shadow, $alpha);
+}
+
+@mixin drop-shadow($offset-x: 0, $offset-y: 0, $blur: 4px, $spread: 4px, $alpha: 0.4) {
+  filter: drop-shadow($offset-x $offset-y $blur color(shadow, $alpha));
+}
+
+@mixin position-center($type: absolute) {
+  position: $type;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin square-size($size: size, $key: default) {
+  @if $key == max {
+    max-width: $size;
+    max-height: $size;
+  }
+  @else if $key == min {
+    min-width: $size;
+    min-height: $size;
+  }
+  @else {
+    width: $size;
+    height: $size;
+  }
+}
+
+@mixin overflow-scroll($direction, $scroll-behavior: auto) {
+  scroll-behavior: $scroll-behavior;
+  @if $direction == x {
+    overflow-y: hidden;
+    overflow-x: auto;
+  }
+  @else if $direction == y {
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  @else {
+    overflow-y: auto;
+    overflow-x: auto;
+  }
+}

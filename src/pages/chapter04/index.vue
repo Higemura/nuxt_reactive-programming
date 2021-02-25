@@ -1,0 +1,43 @@
+<template>
+  <div class="ReactivePage">
+    <h1>CHAPTER 04: Composables Reactive with Vue/Nuxt</h1>
+    <p>Composables Vue/Nuxt版 リアクティブプログラム</p>
+
+    <p id="message" v-html="computedMessage"></p>
+
+    <input
+      id="messageInput"
+      placeholder="Enter message"
+      @input="handleChangeMessage"
+    />
+
+    <p v-for="(error, index) in errors" :key="error+index">{{ error }}</p>
+
+    <LinkButton :href="'/'" :text="'ホームに戻る'" />
+  </div>
+</template>
+
+<script lang="ts">
+import { defineComponent, provide, inject } from "@nuxtjs/composition-api";
+import { Chapter04State, Chapter04StateKey, Chapter04StateType } from '~/composables/pages/capter04'
+
+export default defineComponent({
+  components: {
+    LinkButton: () => import('~/components/molecules/buttons/LinkButton/index.vue'),
+  },
+  setup() {
+    provide(Chapter04StateKey, Chapter04State())
+    const {
+      computedMessage,
+      errors,
+      handleChangeMessage,
+    } = inject(Chapter04StateKey) as Chapter04StateType
+
+    return {
+      computedMessage,
+      errors,
+      handleChangeMessage,
+    };
+  },
+});
+</script>

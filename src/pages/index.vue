@@ -1,37 +1,51 @@
 <template>
   <div class="container">
     <div>
-      <Logo />
-      <h1 class="title">nuxt</h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
+      <h1 class="title">Reactive Programming</h1>
+      <div class="LinkGroup">
+        <LinkButton
+          class="LinkGroup_Button"
+          :href="'/chapter01/'"
+          :text="'CHAPTER 01: Non Reactive'"
+          :nuxtLink="false"
+        />
+        <LinkButton
+          class="LinkGroup_Button"
+          :href="'/chapter02/'"
+          :text="'CHAPTER 02: Reactive without Frameworks'"
+          :nuxtLink="false"
+        />
+        <LinkButton
+          class="LinkGroup_Button"
+          :href="'/chapter03/'"
+          :text="'CHAPTER 03: Reactive with Vue'"
+        />
+        <LinkButton
+          class="LinkGroup_Button"
+          :href="'/chapter04/'"
+          :text="'CHAPTER 04: Composables Reactive with Vue/Nuxt'"
+        />
+        <LinkButton
+          class="LinkGroup_Button"
+          :href="'/chapter05/'"
+          :text="'CHAPTER 05: Non Reactive'"
+        />
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import { defineComponent } from "@nuxtjs/composition-api"
 
-export default Vue.extend({})
+export default defineComponent({
+  components: {
+    LinkButton: () => import('~/components/molecules/buttons/LinkButton/index.vue'),
+  },
+})
 </script>
 
-<style>
+<style lang="scss">
 .container {
   margin: 0 auto;
   min-height: 100vh;
@@ -51,15 +65,16 @@ export default Vue.extend({})
   letter-spacing: 1px;
 }
 
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
+.LinkGroup {
   padding-top: 15px;
+  width: 80%;
+  margin: auto;
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+
+  &_Button {
+    margin: 0 16px 16px 0;
+  }
 }
 </style>
