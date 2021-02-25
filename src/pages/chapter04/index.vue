@@ -9,10 +9,10 @@
       <BaseInput
         id="messageInput"
         placeholder="メッセージを入力してください"
-        :input="handleChangeMessage"
+        :onInput="handleChangeMessage"
       />
 
-      <p v-for="(error, index) in errors" :key="error+index">{{ error }}</p>
+      <p class="ErrorText" v-for="(error, index) in errors" :key="error+index">{{ error }}</p>
 
       <div class="LinkGroup">
         <LinkButton :href="'/'" :text="'ホームに戻る'" />
@@ -27,6 +27,7 @@ import { Chapter04State, Chapter04StateKey, Chapter04StateType } from '~/composa
 
 export default defineComponent({
   components: {
+    BaseInput: () => import('~/components/atoms/BaseInput/index.vue'),
     LinkButton: () => import('~/components/molecules/buttons/LinkButton/index.vue'),
   },
   setup() {
@@ -45,3 +46,9 @@ export default defineComponent({
   },
 });
 </script>
+
+<style lang="scss" scoped>
+.ErrorText {
+  color: red;
+}
+</style>

@@ -9,9 +9,9 @@
       <BaseInput
         id="messageInput"
         placeholder="メッセージを入力してください"
-        :input="handleChangeMessage"
+        :onInput="handleChangeMessage"
       />
-      <p v-for="(error, index) in errors" :key="error+index">{{ error }}</p>
+      <p class="ErrorText" v-for="(error, index) in errors" :key="error+index">{{ error }}</p>
 
       <div class="LinkGroup">
         <LinkButton :href="'/'" :text="'ホームに戻る'" />
@@ -25,12 +25,10 @@ import {
   defineComponent,
   watch,
   reactive,
-  inject,
   computed,
 } from "@nuxtjs/composition-api";
 import { HTMLEvent } from '~/plugins/types/htmlElement'
 import { convertMessage } from '~/plugins/utilities/convertText'
-import { GlobalStateKey, GlobalStateType } from '~/composables'
 
 interface Data {
   message: string
@@ -42,11 +40,10 @@ export default defineComponent({
     LinkButton: () => import('~/components/molecules/buttons/LinkButton/index.vue'),
   },
   setup() {
-    const { themeMode } = inject(GlobalStateKey) as GlobalStateType
     const data = reactive<Data>({
       message: '',
       errors: [],
-    });
+    })
 
     const message = computed(() => convertMessage(data.message))
     const errors = computed(() => data.errors)
@@ -56,7 +53,7 @@ export default defineComponent({
       event.preventDefault();
       const value = event.target.value;
       data.message = value
-    };
+    }
 
     watch(message, (value: string) => {
       // バリデーション
@@ -64,12 +61,10 @@ export default defineComponent({
         data.errors = [...new Set(['入力項目は必須です。', ...data.errors])]
         return
       }
-
       data.errors = []
-    });
+    })
 
     return {
-      themeMode,
       message,
       errors,
       handleChangeMessage,
@@ -77,3 +72,9 @@ export default defineComponent({
   },
 });
 </script>
+
+<style lang="scss" scoped>
+.ErrorText {
+  color: red;
+}
+</style>

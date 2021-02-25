@@ -3,7 +3,7 @@
   <p >フレームワークを使用しない場合のリアクティブプログラム</p>
 
   <div style="margin: 20px;">
-    <p id="message" style="padding: 8px; min-height: 24px; min-width: 120px; border: solid 1px #ccc; border-radius: 4px; background-color: #eee;">
+    <p id="message">
       ここにメッセージが表示されます
     </p>
     <input
@@ -99,3 +99,14 @@
 
   watcher(renderFunction);
 </script>
+
+<style>
+  #message {
+    padding: 8px;
+    min-height: 24px;
+    min-width: 120px;
+    border: solid 1px #ccc;
+    border-radius: 4px;
+    background-color: #eee;
+  }
+</style>

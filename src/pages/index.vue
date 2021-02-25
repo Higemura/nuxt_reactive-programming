@@ -25,11 +25,6 @@
           :href="'/chapter04/'"
           :text="'CHAPTER 04: Composables Reactive with Vue/Nuxt'"
         />
-        <LinkButton
-          class="LinkGroup_Button"
-          :href="'/chapter05/'"
-          :text="'CHAPTER 05: Non Reactive'"
-        />
       </div>
     </div>
   </div>
@@ -76,5 +71,15 @@ export default defineComponent({
   &_Button {
     margin: 0 16px 16px 0;
   }
+}
+
+#message {
+  padding: 8px;
+  min-height: 24px;
+  min-width: 120px;
+  border: solid 1px #ccc;
+  border-radius: 4px;
+  background-color: #eee;
+  margin: 16px;
 }
 </style>
