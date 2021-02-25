@@ -1,51 +1,37 @@
 <template>
   <div class="container">
     <div>
-      <h1 class="title">Reactive Programming</h1>
-      <div class="LinkGroup">
-        <LinkButton
-          class="LinkGroup_Button"
-          :href="'/chapter01'"
-          :text="'CHAPTER 01: Non Reactive'"
-          :nuxtLink="false"
-        />
-        <LinkButton
-          class="LinkGroup_Button"
-          :href="'/chapter02'"
-          :text="'CHAPTER 02: Reactive without Frameworks'"
-          :nuxtLink="false"
-        />
-        <LinkButton
-          class="LinkGroup_Button"
-          :href="'/chapter03'"
-          :text="'CHAPTER 03: Reactive with Vue'"
-        />
-        <LinkButton
-          class="LinkGroup_Button"
-          :href="'/chapter04'"
-          :text="'CHAPTER 04: Composables Reactive with Vue/Nuxt'"
-        />
-        <LinkButton
-          class="LinkGroup_Button"
-          :href="'/chapter05'"
-          :text="'CHAPTER 05: Non Reactive'"
-        />
+      <Logo />
+      <h1 class="title">nuxt</h1>
+      <div class="links">
+        <a
+          href="https://nuxtjs.org/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="button--green"
+        >
+          Documentation
+        </a>
+        <a
+          href="https://github.com/nuxt/nuxt.js"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="button--grey"
+        >
+          GitHub
+        </a>
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "@nuxtjs/composition-api"
+import Vue from 'vue'
 
-export default defineComponent({
-  components: {
-    LinkButton: () => import('~/components/molecules/buttons/LinkButton/index.vue'),
-  },
-})
+export default Vue.extend({})
 </script>
 
-<style lang="scss">
+<style>
 .container {
   margin: 0 auto;
   min-height: 100vh;
@@ -65,16 +51,15 @@ export default defineComponent({
   letter-spacing: 1px;
 }
 
-.LinkGroup {
-  padding-top: 15px;
-  width: 80%;
-  margin: auto;
-  display: flex;
-  align-items: flex-start;
-  flex-wrap: wrap;
+.subtitle {
+  font-weight: 300;
+  font-size: 42px;
+  color: #526488;
+  word-spacing: 5px;
+  padding-bottom: 15px;
+}
 
-  &_Button {
-    margin: 0 16px 16px 0;
-  }
+.links {
+  padding-top: 15px;
 }
 </style>

@@ -14,33 +14,21 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
 
-  styleResources: {
-    scss: ['~/assets/scss/settings.scss'],
-  },
-
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ['~/assets/scss/common.scss'],
+  css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [
-    {
-      src: "~/plugins/globalProvider"
-    }
-  ],
+  plugins: [],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
-    "@nuxtjs/composition-api",
     // https://go.nuxtjs.dev/typescript
     '@nuxt/typescript-build',
     // https://go.nuxtjs.dev/stylelint
     '@nuxtjs/stylelint-module',
-    '@nuxtjs/style-resources',
-    '@nuxtjs/svg-sprite',
-    '@nuxtjs/color-mode',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -68,14 +56,4 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
-
-  svgSprite: {
-    defaultSprite: 'sprites',
-  },
-
-  router: {
-    linkActiveClass: '_ActiveLink',
-    linkExactActiveClass: '_ExactActiveLink',
-    trailingSlash: true,
-  },
 }

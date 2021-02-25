@@ -25,8 +25,7 @@
       "@nuxt/types",
       "@nuxtjs/axios",
       "@nuxt/content",
-      "@types/node",
-      "@nuxtjs/color-mode"
+      "@types/node"
     ]
   },
   "exclude": [
